@@ -1,10 +1,10 @@
-import thunk from 'redux-thunk'
+import {thunMiddleware} from 'redux-thunk'
 import { createStore, applyMiddleware } from 'redux'
 import appReducer from './reducers'
 
 export default (initialState={}) => {
 	console.log(initialState);
-	var store = createStore(appReducer,initialState,applyMiddleware(thunk))
+	var store = createStore(appReducer,initialState,composeWithDevTools(applyMiddleware(thunMiddleware)))
 	console.log('store.getState()');
 	console.log(store.getState());
 	

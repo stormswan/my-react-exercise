@@ -29,3 +29,10 @@ ReactDOM.render(
     <MainManue />
 </Provider>, document.getElementById('root'));
 registerServiceWorker();
+
+
+export default () => (
+    <Provider store = {store}>
+    <MainManue />
+</Provider>
+)

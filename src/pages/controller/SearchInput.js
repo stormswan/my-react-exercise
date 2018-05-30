@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import SearchInput from '../UI/SearchInput'
-
+import  withRedux  from 'next-redux-wrapper'
 import { connect } from 'react-redux'
 import { updateKeyWords } from '../reduxjs/actions'
 
@@ -17,4 +17,4 @@ const mapDispatchToProps = disptach =>
     }
   }) 
 
-export default connect(mapStateToProps,mapDispatchToProps)(SearchInput)//SearchBar
+export default withRedux(mapStateToProps,mapDispatchToProps)(SearchInput)//SearchBar

@@ -1,8 +1,12 @@
 {
   "name": "my-search-bar",
   "version": "0.1.0",
+  "description": "this is an exercise for React. build step by step. React -> Redux -> next.js",
   "private": true,
+  "main": "server.js",
   "dependencies": {
+    "@zeit/next-css": "^0.2.0",
+    "next": "^6.0.3",
     "react": "^16.4.0",
     "react-dom": "^16.4.0",
     "react-redux": "^5.0.7",
@@ -11,8 +15,14 @@
     "redux": "^4.0.0",
     "redux-thunk": "^2.3.0"
   },
+  "devDependencies": {
+    "express": "^4.16.3",
+    "redux-devtools-extension": "^2.13.2"
+  },
   "scripts": {
     "start": "react-scripts start",
+    "startnext": "next start",
+    "dev": "node server.js",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
