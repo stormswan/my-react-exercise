@@ -1,18 +1,20 @@
 import React, { Component } from 'react'
+import SearchInput from '../UI/SearchInput'
 
+import { connect } from 'react-redux'
+import { updateKeyWords } from '../reduxjs/actions'
 
-export default class SearchInput extends Component {
+const mapStateToProps = (state, props) => 
+  ({
+  })
 
-  updateSearchKeyWords = (e) =>{
-    this.props.setSearchKeyWords(e.target.value);
-  }
-  
+const mapDispatchToProps = disptach => 
+  ({
+    setSearchKeyWords(keyWords) {
+      disptach(
+        updateKeyWords(keyWords)
+      )
+    }
+  }) 
 
-  render() {
-    return (
-      <div>
-        <input type='text' onChange={this.updateSearchKeyWords}/>
-      </div>
-    )
-  }
-}
+export default connect(mapStateToProps,mapDispatchToProps)(SearchInput)//SearchBar
