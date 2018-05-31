@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react'
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
@@ -10,46 +10,33 @@ import { Provider } from 'react-redux'
 
 
 
-import React, { Component } from 'react'
-
+const saveState = () => 
+localStorage["redux-store"] = JSON.stringify(store.getState())
+var  storeInitData ={
+    keyWords: '',
+    selectedItems:[]
+}
+const store = storeFactory(storeInitData)
+store.subscribe(saveState)
+var rootDoc;
  class ReactIndex extends Component {
+   
+    componentDidMount = () => {
+      window.React = React
+        window.store = store
+        rootDoc = document.getElementById('root')
+
+    }
 
   render() {
     return (
         ReactDOM.render(  
             <Provider store = {store}>
                 <MainManue />
-            </Provider>, document.getElementById('root'))
+            </Provider>,rootDoc )
     )
   }
 }
 
 
-
-
-const saveState = () => 
-    localStorage["redux-store"] = JSON.stringify(store.getState())
-
-var  storeInitData ={
-    keyWords: '',
-    selectedItems:[]
-}
-
-const store = storeFactory(storeInitData)
-store.subscribe(saveState)
-
-// window.React = React
-// window.store = store
-
-
-// ReactDOM.render(  
-// <Provider store = {store}>
-//     <MainManue />
-// </Provider>, document.getElementById('root'));
-// registerServiceWorker();
-
-
-export default () => (
-
-            <MainManue />
-)
+export default ReactIndex
