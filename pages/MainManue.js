@@ -29,4 +29,4 @@ const MainManue = () =>(
 </Router>
 )
 
-export default MainManue;
+export default Home;
